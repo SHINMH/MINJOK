@@ -10,7 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class SampleController {
+public class LoginViewController {
 
 	@FXML
 	private TextField tf_id;

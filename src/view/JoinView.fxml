@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,36 +11,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <ImageView fitHeight="212.0" fitWidth="665.0" layoutX="14.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Downloads/다운로드.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="636.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="회원가입">
-         <font>
-            <Font name="Britannic Bold" size="40.0" />
-         </font>
-      </Text>
-      <Line endX="125.60003662109375" layoutX="716.0" layoutY="260.0" startX="-144.79998779296875" />
-      <Line endX="123.79998779296875" layoutX="717.0" layoutY="308.0" startX="-143.39996337890625" />
-      <Line endX="126.39996337890625" layoutX="716.0" layoutY="355.0" startX="-144.0" />
-      <Text layoutX="581.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이메일">
-         <font>
-            <Font name="Bodoni MT Condensed" size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="580.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="비밀번호">
-         <font>
-            <Font name="Bodoni MT Poster Compressed" size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="580.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="비밀번호 확인">
-         <font>
-            <Font name="Bodoni MT Condensed" size="18.0" />
-         </font>
-      </Text>
-      <Line endX="47.00006103515625" endY="0.4000244140625" layoutX="707.0" layoutY="479.0" startX="-29.0" startY="0.4000244140625" />
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.JoinViewController">
+	<children>
+		<ImageView fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" smooth="false">
+			<image>
+				<Image url="@../image/back.PNG" />
+			</image>
+		</ImageView>
+
+		<Label layoutX="720.0" layoutY="160.0" text="ID" />
+		<Label layoutX="720.0" layoutY="220.0" text="PASSWORD" />
+		<Label layoutX="720.0" layoutY="280.0" text="RE PASSWORD" />
+
+		<TextField fx:id="tf_id" layoutX="720.0" layoutY="180.0" prefWidth="140.0" promptText="이메일"/>
+		<PasswordField fx:id="tf_password" layoutX="720.0" layoutY="240.0" prefWidth="140.0" promptText="비밀번호"/>
+		<PasswordField fx:id="tf_rePassword" layoutX="720.0" layoutY="300.0" prefWidth="140.0" promptText="비밀번호 확인"/>
+
+		<Button fx:id="btn_resister" layoutX="720.0" layoutY="340.0" mnemonicParsing="false" onAction="#resister" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="RESISTER" />
+		<Button fx:id="btn_cancel" layoutX="720.0" layoutY="370.0" mnemonicParsing="false" onAction="#cancel" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="CANCEL" />
+	</children>
 </AnchorPane>
