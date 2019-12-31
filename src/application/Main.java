@@ -31,7 +31,7 @@ public class Main extends Application {
 	public void initLoginLayout() {
 		// fxml 파일에서 상위 레이아웃을 가져온다.
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
 			Scene scene = new Scene(root, 1000, 600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
@@ -45,7 +45,7 @@ public class Main extends Application {
 		try {
 			// fxml 파일에서 상위 레이아웃을 가져온다.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/view/ProdDetailView.fxml"));
+			loader.setLocation(Main.class.getResource("../view/ProdDetailView.fxml"));
 			rootLayout = (AnchorPane) loader.load();
 
 			// 상위 레이아웃을 포함하는 scene을 보여준다.
@@ -61,7 +61,7 @@ public class Main extends Application {
 		try {
 			// fxml 파일에서 상위 레이아웃을 가져온다.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/view/JoinView.fxml"));
+			loader.setLocation(Main.class.getResource("../view/JoinView.fxml"));
 			rootLayout = (AnchorPane) loader.load();
 
 			// 상위 레이아웃을 포함하는 scene을 보여준다.

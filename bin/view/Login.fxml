@@ -3,13 +3,13 @@
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>	
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
-      <TextField fx:id="Login" layoutX="720.0" layoutY="220.0" prefWidth="140.0" />
-      <TextField fx:id="Password" layoutX="720.0" layoutY="280.0" prefWidth="140.0" />
+      <TextField fx:id="tf_id" layoutX="720.0" layoutY="220.0" prefWidth="140.0" promptText="이메일" />
+      <PasswordField fx:id="tf_password" layoutX="720.0" layoutY="280.0" prefWidth="140.0" promptText="비밀번호" />
       <ImageView fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" smooth="false">
          <image>
             <Image url="@../image/back.PNG" />
@@ -17,7 +17,7 @@
       </ImageView>
       <Label layoutX="720.0" layoutY="200.0" text="ID" />
       <Label layoutX="720.0" layoutY="260.0" text="PASSWORD" />
-      <Button layoutX="720.0" layoutY="320.0" mnemonicParsing="false" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="Login" textAlignment="CENTER" />
-      <Button layoutX="720.0" layoutY="350.0" mnemonicParsing="false" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="singIn" textAlignment="CENTER" />
+      <Button fx:id="btn_login" layoutX="720.0" layoutY="320.0" mnemonicParsing="false" onAction="#login" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="Login" textAlignment="CENTER" />
+      <Button fx:id="btn_signUp" layoutX="720.0" layoutY="350.0" mnemonicParsing="false" onAction="#signIn" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="singIn" textAlignment="CENTER" />
    </children>
 </AnchorPane>
