@@ -9,12 +9,7 @@ import java.net.URL;
 import org.json.simple.JSONObject;
 
 public class NetworkController {
-	public String sendREST(String sendURL, String jsonValue) {
-		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("id", "shin");
-		jsonObject.put("pw", "1234");
-		
-		jsonValue = jsonObject.toJSONString();
+	public String sendREST(String sendURL, JSONObject jsonValue) {
 		
 		System.out.println(jsonValue);
 		
@@ -28,11 +23,11 @@ public class NetworkController {
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("Content-Type", "application/json");
 			conn.setRequestProperty("Accept-Charset", "UTF-8");
-			conn.setConnectTimeout(10000);
-			conn.setReadTimeout(10000);
+			conn.setConnectTimeout(3000);
+			conn.setReadTimeout(3000);
 			
 			OutputStream os = conn.getOutputStream();
-			os.write(jsonValue.getBytes("UTF-8"));
+			os.write(jsonValue.toJSONString().getBytes("UTF-8"));
 			os.flush();
 			
 			BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));

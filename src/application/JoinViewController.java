@@ -1,7 +1,6 @@
 package application;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,26 +26,18 @@ public class JoinViewController {
 	private PasswordField tf_rePassword;
 
 	@FXML
-	private Button btn_resister;
+	private Button btn_register;
 	@FXML
 	private Button btn_cancel;
 
-	public void resister(ActionEvent event) throws Exception {
+	public void register(ActionEvent event) throws Exception {
 		String pw = tf_password.getText();
 		String rePw = tf_password.getText();
 
 		if (pw.equals(rePw)) {
 			NetworkController networkController = new NetworkController();
-			HashMap<String,Object> resultMap = new HashMap<>();
-			resultMap.put("", "");
-			String json = 
 			
-			networkController.sendREST("http://15011066.iptime.org:8080/user/register", "");
-			
-			/*
-			 * 통신 파트 들어가야 함
-			 */
-			
+			networkController.sendREST("http://15011066.iptime.org:8080/user/register", null);
 			
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Information Dialog");
@@ -57,7 +48,7 @@ public class JoinViewController {
 				@Override
 				public void handle(DialogEvent arg0) {
 					// TODO Auto-generated method stub
-					Stage primaryStage = (Stage) btn_resister.getScene().getWindow();
+					Stage primaryStage = (Stage) btn_register.getScene().getWindow();
 					Parent root = null;
 					try {
 						root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));

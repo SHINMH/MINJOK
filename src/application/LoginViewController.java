@@ -1,5 +1,8 @@
 package application;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +26,27 @@ public class LoginViewController {
 	private Button btn_signUp;
 
 	public void login(ActionEvent event) throws Exception {
-		if (tf_id.getText().equals("test") && tf_password.getText().equals("test")) {
+		String id;
+		String pw;
+		
+		id = tf_id.getText();
+		pw = tf_password.getText();
+		
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("id", id);
+		jsonObject.put("pw", pw);
+		
+		NetworkController networkController = new NetworkController();
+		String result = networkController.sendREST("http://15011066.iptime.org:8080/user/login", jsonObject);
+		System.out.println(result);
+		
+		JSONParser parser = new JSONParser();
+		
+		JSONObject result1 = (JSONObject) parser.parse(result);
+		
+		String code = String.valueOf(result1.get("code"));
+		
+		if (code.equals("200")) {
 			Stage primaryStage = (Stage)btn_login.getScene().getWindow();
 			Parent root = FXMLLoader.load(getClass().getResource("../view/ProductListView.fxml"));
 			Scene scene = new Scene(root);
