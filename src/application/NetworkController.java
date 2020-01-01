@@ -11,8 +11,13 @@ import org.json.simple.JSONObject;
 public class NetworkController {
 	public String sendREST(String sendURL, String jsonValue) {
 		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("id", "shin");
+		jsonObject.put("pw", "1234");
 		
-	
+		jsonValue = jsonObject.toJSONString();
+		
+		System.out.println(jsonValue);
+		
 		String inputLine = null;
 		StringBuffer outResult = new StringBuffer();
 		
@@ -41,6 +46,8 @@ public class NetworkController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println(outResult.toString());
 		
 		return outResult.toString();
 	}
