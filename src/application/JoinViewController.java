@@ -1,5 +1,7 @@
 package application;
 
+import java.util.HashMap;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +31,13 @@ public class JoinViewController {
 		String rePw = tf_password.getText();
 
 		if (pw.equals(rePw)) {
+			NetworkController networkController = new NetworkController();
+			HashMap<String,Object> resultMap = new HashMap<>();
+			resultMap.put("", "");
+			String json = 
+			
+			networkController.sendREST("", "");
+			
 			/*
 			 * 통신 파트 들어가야 함
 			 */
