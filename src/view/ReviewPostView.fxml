@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutY="123.0" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #1f0478;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="93.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="99.0" prefWidth="209.0" style="-fx-background-color: #1f0478;" text="리뷰의 민족" textFill="WHITE">
+                     <font>
+                        <Font name="HYwulB" size="20.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="47.0" prefWidth="199.0" style="-fx-background-color: #4721c2;" text="상품 리스트" textFill="WHITE">
+                     <font>
+                        <Font name="HYwulM" size="12.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="47.0" prefWidth="199.0" style="-fx-background-color: #4721c2;" text="리뷰 리스트" textFill="WHITE">
+                     <font>
+                        <Font name="HYwulM" size="12.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="47.0" prefWidth="199.0" style="-fx-background-color: #4721c2;" text="리뷰 등록" textFill="WHITE">
+                     <font>
+                        <Font name="HYwulM" size="12.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="47.0" prefWidth="199.0" style="-fx-background-color: #4721c2;" text="내 정보" textFill="WHITE">
+                     <font>
+                        <Font name="HYwulM" size="12.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Pane layoutX="186.0" layoutY="14.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <TextField layoutX="205.0" layoutY="107.0" prefHeight="39.0" prefWidth="462.0" />
+            <TextField layoutX="206.0" layoutY="163.0" prefHeight="39.0" prefWidth="462.0">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TextField>
+            <Label layoutX="77.0" layoutY="115.0" text="선택한 상품">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="112.0" layoutY="169.0" text="제목">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="71.0" layoutY="222.0" text="리뷰 작성하기">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="70.0" layoutY="254.0" prefHeight="259.0" prefWidth="608.0" />
+            <Button layoutX="91.0" layoutY="528.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="취소">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="583.0" layoutY="528.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="등록">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children></Pane>
+   </children>
+</AnchorPane>
