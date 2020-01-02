@@ -88,16 +88,19 @@ public class ProductListViewController implements Initializable {
 	}
 
 	public void searchEntry(ActionEvent event) throws Exception {
+		item_listview.getChildren().clear();
 		showProdList.clear();
+		maxnumber = 0;
 		for(int i=0;i<prodList.size();i++) {
 			ProductModel model = prodList.get(i);
 			
 			if(model.getProdName().contains(tf_search.getText())) {
 				showProdList.add(model);
 				System.out.println(model.getProdName());
+				maxnumber++;
 			}
 		}
-		//showList();
+		showList();
 	}
 	
 	public void getList() {
@@ -134,7 +137,7 @@ public class ProductListViewController implements Initializable {
 	public void showList() {
 		for(int i=0;i<6;i++) {
 				if((prodindex*6)+i<0||(prodindex*6)+i>=maxnumber) break;
-				ProductModel model = prodList.get((prodindex*6)+i);
+				ProductModel model = showProdList.get((prodindex*6)+i);
 				
 				VBox newItem = new VBox();
 				String style = "-fx-background-color: rgba(255, 255, 255, 0.5);";
