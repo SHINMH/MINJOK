@@ -64,7 +64,7 @@ public class ProductListViewController implements Initializable {
 
 	public void nextlist(ActionEvent event) throws Exception {
 		System.out.println("다음버튼 눌림");
-		if(prodindex>=12)
+		if(prodindex>=Math.ceil((double)maxnumber/6.0)-1)
 			return;
 		item_listview.getChildren().clear();
 		prodindex++;
@@ -151,8 +151,9 @@ public class ProductListViewController implements Initializable {
 						System.out.print(""+label_name.getText());
 					}
 				});
+				int x=i%3;
 				int y=(i<3) ? 0 : 1;
-				item_listview.add(newItem, i%3, y);
+				item_listview.add(newItem, x, y);
 			
 		}
 	}
