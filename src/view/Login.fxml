@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -8,6 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fde0dd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginViewController">
    <children>
+      <Pane layoutX="690.0" layoutY="175.0" prefHeight="234.0" prefWidth="200.0" style="-fx-background-color: #f9f9f9; -fx-background-radius: 20;" />
       <ImageView fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" smooth="false">
          <image>
             <Image url="@../image/back.PNG" />
@@ -19,7 +21,7 @@
       <TextField fx:id="tf_id" layoutX="720.0" layoutY="220.0" prefWidth="140.0" promptText="이메일" />
       <PasswordField fx:id="tf_password" layoutX="720.0" layoutY="280.0" prefWidth="140.0" promptText="비밀번호" />
       
-      <Button fx:id="btn_login" layoutX="720.0" layoutY="320.0" mnemonicParsing="false" onAction="#login" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="LOGIN" textAlignment="CENTER" />
-      <Button fx:id="btn_signUp" layoutX="720.0" layoutY="350.0" mnemonicParsing="false" onAction="#signIn" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="SIGNIN" textAlignment="CENTER" />
+      <Button fx:id="btn_login" layoutX="720.0" layoutY="320.0" mnemonicParsing="false" onAction="#login" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="LOGIN" textAlignment="CENTER" textFill="WHITE" />
+      <Button fx:id="btn_register" layoutX="720.0" layoutY="350.0" mnemonicParsing="false" onAction="#register" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="REGISTER" textAlignment="CENTER" textFill="WHITE" />
    </children>
 </AnchorPane>

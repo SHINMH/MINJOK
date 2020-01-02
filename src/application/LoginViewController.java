@@ -23,7 +23,7 @@ public class LoginViewController {
 	@FXML
 	private Button btn_login;
 	@FXML
-	private Button btn_signUp;
+	private Button btn_register;
 
 	public void login(ActionEvent event) throws Exception {
 		String id;
@@ -57,10 +57,10 @@ public class LoginViewController {
 		}
 	}
 
-	public void signIn(ActionEvent event) throws Exception {
+	public void register(ActionEvent event) throws Exception {
 		System.out.print("로그인 버튼 눌림");
 
-		Stage primaryStage = (Stage)btn_signUp.getScene().getWindow();
+		Stage primaryStage = (Stage)btn_register.getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("../view/JoinView.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
