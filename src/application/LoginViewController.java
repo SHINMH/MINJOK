@@ -47,6 +47,8 @@ public class LoginViewController {
 		String code = String.valueOf(jsonObjectResult.get("code"));
 		
 		if (code.equals("200")) {
+			AppManager.getInstance().setUser(id, pw);
+			
 			Stage primaryStage = (Stage)btn_login.getScene().getWindow();
 			Parent root = FXMLLoader.load(getClass().getResource("../view/ProductListView.fxml"));
 			Scene scene = new Scene(root);
