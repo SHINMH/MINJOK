@@ -100,6 +100,8 @@ public class ProdDetailViewController implements Initializable{
 	}
 	
 	public void writeReview(ActionEvent event) throws Exception {
+		Image image = new Image("/image/AppIcon.png");
+		
 		AppManager.getInstance().setCheckPoint(2);
 		AppManager.getInstance().setScene(btn_writeReview.getScene());
 		AppManager.getInstance().setStage((Stage) btn_writeReview.getScene().getWindow());
@@ -108,6 +110,7 @@ public class ProdDetailViewController implements Initializable{
 		
 		postDialog.initModality(Modality.WINDOW_MODAL);
 		postDialog.setTitle("리뷰 작성");
+		postDialog.getIcons().add(image);
 		postDialog.initOwner(btn_writeReview.getScene().getWindow());
 
 		Parent parent = FXMLLoader.load(getClass().getResource("../view/ReviewPostView.fxml"));

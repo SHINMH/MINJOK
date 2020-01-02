@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -65,13 +66,14 @@ public class MyReviewListViewController implements Initializable {
 		getMyReviewList();
 	}
 	public void showReviewEditView() {
+		Image image = new Image("/image/AppIcon.png");
 		AppManager.getInstance().setCheckPoint(1);
         System.out.println("user : "+tableView_myReviewList.getSelectionModel().getSelectedItem().getReviewUser());
         AppManager.getInstance().setReview(tableView_myReviewList.getSelectionModel().getSelectedItem());
         System.out.println("title : " +AppManager.getInstance().getReview().getReviewTitle());
 		
         Stage editDialog = new Stage(StageStyle.DECORATED);
-		
+		editDialog.getIcons().add(image);
         editDialog.initModality(Modality.WINDOW_MODAL);
         editDialog.setTitle("리뷰 수정 / 삭제");
         editDialog.initOwner(tableView_myReviewList.getScene().getWindow());

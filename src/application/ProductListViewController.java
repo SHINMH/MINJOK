@@ -97,8 +97,11 @@ public class ProductListViewController implements Initializable {
 	}
 
 	public void clickEntry(Event arg0) throws Exception {
-		Stage detailDialog = new Stage(StageStyle.DECORATED);
+		Image image = new Image("/image/AppIcon.png");
 
+		Stage detailDialog = new Stage(StageStyle.DECORATED);
+		
+		detailDialog.getIcons().add(image);
 		detailDialog.initModality(Modality.WINDOW_MODAL);
 		detailDialog.setTitle("상품 상세보기");
 		detailDialog.initOwner(btn_prev.getScene().getWindow());
