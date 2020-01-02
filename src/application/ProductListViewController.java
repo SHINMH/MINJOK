@@ -63,16 +63,21 @@ public class ProductListViewController implements Initializable {
 	}
 
 	public void nextlist(ActionEvent event) throws Exception {
-		System.out.print("다음버튼 눌림");
+		System.out.println("다음버튼 눌림");
+		if(prodindex>=12)
+			return;
 		item_listview.getChildren().clear();
-
+		prodindex++;
 		showList();
 	}
 
 	public void prevlist(ActionEvent event) throws Exception {
-		System.out.print("이전버튼 눌림");
+		System.out.println("이전버튼 눌림");
+		if(prodindex<=0)
+			return;
+		
 		item_listview.getChildren().clear();
-	
+		prodindex--;
 		showList();
 	}
 	
@@ -111,11 +116,9 @@ public class ProductListViewController implements Initializable {
 	}
 	
 	public void showList() {
-		for(int i=0;i<2;i++) {
-			for(int j=0;j<3;j++) {
-				//if(prodindex*6+i+j >= maxnumber)break;
-				ProductModel model = prodList.get(prodindex);
-				prodindex++;
+		for(int i=0;i<6;i++) {
+				if((prodindex*6)+i<0||(prodindex*6)+i>=maxnumber) break;
+				ProductModel model = prodList.get((prodindex*6)+i);
 				
 				VBox newItem = new VBox();
 				String style = "-fx-background-color: rgba(255, 255, 255, 0.5);";
@@ -148,8 +151,9 @@ public class ProductListViewController implements Initializable {
 						System.out.print(""+label_name.getText());
 					}
 				});
-				item_listview.add(newItem, j,i);
-			}
+				int y=(i<3) ? 0 : 1;
+				item_listview.add(newItem, i%3, y);
+			
 		}
 	}
 }
