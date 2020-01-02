@@ -11,8 +11,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.JoinViewController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: FDE0DD;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.JoinViewController">
 	<children>
+      <Pane layoutX="690.0" layoutY="135.0" prefHeight="280.0" prefWidth="200.0" style="-fx-background-color: #f9f9f9; -fx-background-radius: 20;" />
 		<ImageView fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" smooth="false">
 			<image>
 				<Image url="@../image/back.PNG" />
@@ -27,7 +28,7 @@
 		<PasswordField fx:id="tf_password" layoutX="720.0" layoutY="240.0" prefWidth="140.0" promptText="비밀번호" />
 		<PasswordField fx:id="tf_rePassword" layoutX="720.0" layoutY="300.0" prefWidth="140.0" promptText="비밀번호 확인" />
 
-		<Button fx:id="btn_register" layoutX="720.0" layoutY="340.0" mnemonicParsing="false" onAction="#register" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="REGISTER" />
-		<Button fx:id="btn_cancel" layoutX="720.0" layoutY="370.0" mnemonicParsing="false" onAction="#cancel" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="CANCEL" />
+		<Button fx:id="btn_register" layoutX="720.0" layoutY="340.0" mnemonicParsing="false" onAction="#register" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="REGISTER" textFill="WHITE" />
+		<Button fx:id="btn_cancel" layoutX="720.0" layoutY="370.0" mnemonicParsing="false" onAction="#cancel" prefWidth="140.0" style="-fx-background-color: #045FB4;" text="CANCEL" textFill="WHITE" />
 	</children>
 </AnchorPane>

@@ -51,13 +51,8 @@ public class ProductListViewController implements Initializable {
 	private Button btn_prev;
 	@FXML
 	private Label label_index;
-
 	@FXML
-	private VBox vbox_reviewList;
-	@FXML
-	private VBox vbox_reviewPost;
-	@FXML
-	private VBox vbox_myReivew;
+	private VBox vbox_myReviewList;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -219,41 +214,11 @@ public class ProductListViewController implements Initializable {
 		}
 	}
 
-	public void changeToReviewListView() {
-		Stage primaryStage = (Stage)vbox_reviewList.getScene().getWindow();
+	public void changeToMyReviewListView() {
+		Stage primaryStage = (Stage)vbox_myReviewList.getScene().getWindow();
 		Parent root;
 		try {
-			root = FXMLLoader.load(getClass().getResource("../view/ReviewListView.fxml"));
-			Scene scene = new Scene(root);
-			
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public void changeToReviewPostView() {
-		Stage primaryStage = (Stage)vbox_reviewPost.getScene().getWindow();
-		Parent root;
-		try {
-			root = FXMLLoader.load(getClass().getResource("../view/ReviewPostView.fxml"));
-			Scene scene = new Scene(root);
-			
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public void changeToMyReviewView() {
-		Stage primaryStage = (Stage)vbox_myReivew.getScene().getWindow();
-		Parent root;
-		try {
-			root = FXMLLoader.load(getClass().getResource("../view/ReviewListView.fxml"));
+			root = FXMLLoader.load(getClass().getResource("../view/MyReviewListView.fxml"));
 			Scene scene = new Scene(root);
 			
 			primaryStage.setScene(scene);

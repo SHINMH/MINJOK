@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fde0dd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginViewController">
    <children>
-      <Pane layoutX="690.0" layoutY="175.0" prefHeight="234.0" prefWidth="200.0" style="-fx-background-color: #f9f9f9; -fx-background-radius: 20;" />
+      <Pane layoutX="690.0" layoutY="175.0" prefHeight="230.0" prefWidth="200.0" style="-fx-background-color: #f9f9f9; -fx-background-radius: 20;" />
       <ImageView fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" smooth="false">
          <image>
             <Image url="@../image/back.PNG" />
