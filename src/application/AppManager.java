@@ -1,9 +1,11 @@
 package application;
 
+import model.ProductModel;
 import model.UserModel;
 
 public class AppManager {
 	private UserModel user;
+	private ProductModel product;
 	private static AppManager instance = new AppManager();
 	private AppManager() {
 	}
@@ -20,4 +22,13 @@ public class AppManager {
 	public UserModel getUser() {
 		return user;
 	}
+	
+	
+	public void setProduct(ProductModel product) {
+		this.product = product;
+	}
+	public ProductModel getProduct() {
+		return product;
+	}
+	
 }

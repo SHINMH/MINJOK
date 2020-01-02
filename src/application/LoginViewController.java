@@ -42,9 +42,9 @@ public class LoginViewController {
 		
 		JSONParser parser = new JSONParser();
 		
-		JSONObject result1 = (JSONObject) parser.parse(result);
+		JSONObject jsonObjectResult = (JSONObject) parser.parse(result);
 		
-		String code = String.valueOf(result1.get("code"));
+		String code = String.valueOf(jsonObjectResult.get("code"));
 		
 		if (code.equals("200")) {
 			Stage primaryStage = (Stage)btn_login.getScene().getWindow();

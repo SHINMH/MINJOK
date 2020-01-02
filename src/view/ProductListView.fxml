@@ -15,7 +15,7 @@
       <VBox layoutY="123.0" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: FF8279;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
          
-            <VBox prefHeight="93.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+            <VBox fx:id="vbox_productList" prefHeight="93.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
                <children>
                   <Label alignment="CENTER" prefHeight="99.0" prefWidth="200.0" style="-fx-background-color: FF8279;" text="리뷰의 민족" textFill="WHITE">
                      <font>
@@ -33,15 +33,15 @@
                   </Label>
                </children>
             </VBox>
-            <VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+            <VBox fx:id="vbox_reviewList" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
                <children>
-                  <Label alignment="CENTER" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: FF948D;" text="리뷰 리스트" textFill="WHITE">
+                  <Label alignment="CENTER" onMouseClicked="#changeToReviewListView" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: FF948D;" text="리뷰 리스트" textFill="WHITE">
                      <font>
                         <Font name="HYwulM" size="12.0" />
                      </font></Label>
                </children>
             </VBox>
-            <VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+            <VBox fx:id="vbox_reviewPost" onMouseClicked="#changeToReviewPostView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
                <children>
                   <Label alignment="CENTER" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: FF948D;" text="리뷰 등록" textFill="WHITE">
                      <font>
@@ -49,7 +49,7 @@
                      </font></Label>
                </children>
             </VBox>
-            <VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+            <VBox fx:id="vbox_myReivew" onMouseClicked="#changeToMyReviewView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
                <children>
                   <Label alignment="CENTER" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: FF948D;" text="내 정보" textFill="WHITE">
                      <font>
