@@ -100,6 +100,7 @@ public class ProdDetailViewController implements Initializable{
 	}
 	
 	public void writeReview(ActionEvent event) throws Exception {
+		AppManager.getInstance().setCheckPoint(2);
 		AppManager.getInstance().setScene(btn_writeReview.getScene());
 		AppManager.getInstance().setStage((Stage) btn_writeReview.getScene().getWindow());
 		
