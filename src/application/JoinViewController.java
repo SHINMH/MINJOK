@@ -2,6 +2,9 @@ package application;
 
 import java.io.IOException;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -31,20 +34,28 @@ public class JoinViewController {
 	private Button btn_cancel;
 
 	public void register(ActionEvent event) throws Exception {
+		String id = tf_id.getText();
 		String pw = tf_password.getText();
-		String rePw = tf_password.getText();
-
+		String rePw = tf_rePassword.getText();
+		Alert alert = new Alert(AlertType.INFORMATION);
+		
 		if (pw.equals(rePw)) {
 			NetworkController networkController = new NetworkController();
+
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("id", id);
+			jsonObject.put("pw", pw);
 			
-			networkController.sendREST("http://15011066.iptime.org:8080/user/register", null);
+			String result = networkController.sendREST("http://15011066.iptime.org:8080/user/register", jsonObject);
 			
-			Alert alert = new Alert(AlertType.INFORMATION);
+			JSONParser parser = new JSONParser();
+			JSONObject result1 = (JSONObject) parser.parse(result);
+			String code = String.valueOf(result1.get("code"));
+			
 			alert.setTitle("Information Dialog");
 			alert.setHeaderText(null);
-			alert.setContentText("I have a great message for you!");
+			alert.setContentText("회원가입 성공!");
 			alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
-				
 				@Override
 				public void handle(DialogEvent arg0) {
 					// TODO Auto-generated method stub
@@ -52,18 +63,21 @@ public class JoinViewController {
 					Parent root = null;
 					try {
 						root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+						Scene scene = new Scene(root);
+						primaryStage.setScene(scene);
+						primaryStage.show();
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					Scene scene = new Scene(root);
-					scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-					
-					primaryStage.setScene(scene);
-					primaryStage.show();
 				}
 			});
-
+			alert.showAndWait();
+		}
+		else {
+			alert.setTitle("Information Dialog");
+			alert.setHeaderText(null);
+			alert.setContentText("비밀번호를 다시 확인해주시기 바랍니다.");
 			alert.showAndWait();
 		}
 	}
@@ -72,7 +86,6 @@ public class JoinViewController {
 		Stage primaryStage = (Stage) btn_cancel.getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 		primaryStage.setScene(scene);
 		primaryStage.show();
