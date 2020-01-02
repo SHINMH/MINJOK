@@ -53,7 +53,7 @@ public class ProductListViewController implements Initializable {
 	private Label label_index;
 	@FXML
 	private VBox vbox_myReviewList;
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -81,7 +81,7 @@ public class ProductListViewController implements Initializable {
 			return;
 		item_listview.getChildren().clear();
 		prodindex++;
-		
+
 		showList();
 	}
 
@@ -92,27 +92,26 @@ public class ProductListViewController implements Initializable {
 
 		item_listview.getChildren().clear();
 		prodindex--;
-		
+
 		showList();
 	}
-	
+
 	public void clickEntry(Event arg0) throws Exception {
-			Stage joinDialog = new Stage(StageStyle.DECORATED);
+		Stage detailDialog = new Stage(StageStyle.DECORATED);
 
-	      joinDialog.initModality(Modality.WINDOW_MODAL);
-	      joinDialog.setTitle("상품 상세보기");
-	      joinDialog.initOwner(btn_prev.getScene().getWindow());
+		detailDialog.initModality(Modality.WINDOW_MODAL);
+		detailDialog.setTitle("상품 상세보기");
+		detailDialog.initOwner(btn_prev.getScene().getWindow());
 
-	      Parent parent = FXMLLoader.load(getClass().getResource("../view/ProdDetailView.fxml"));
-	      
-	      Scene scene = new Scene(parent);
+		Parent parent = FXMLLoader.load(getClass().getResource("../view/ProdDetailView.fxml"));
 
-	      joinDialog.setScene(scene);
+		Scene scene = new Scene(parent);
 
-	      joinDialog.setResizable(false);
+		detailDialog.setScene(scene);
 
-	      joinDialog.show();
+		detailDialog.setResizable(false);
 
+		detailDialog.show();
 	}
 
 	public void searchEntry(ActionEvent event) throws Exception {
@@ -166,8 +165,8 @@ public class ProductListViewController implements Initializable {
 		for (int i = 0; i < 6; i++) {
 			if ((prodindex * 6) + i < 0 || (prodindex * 6) + i >= maxnumber)
 				break;
-			label_index.setText((prodindex+1)+" / "+ (int)Math.ceil((double) maxnumber / 6.0));
-			
+			label_index.setText((prodindex + 1) + " / " + (int) Math.ceil((double) maxnumber / 6.0));
+
 			ProductModel model = showProdList.get((prodindex * 6) + i);
 
 			VBox newItem = new VBox();
@@ -215,12 +214,12 @@ public class ProductListViewController implements Initializable {
 	}
 
 	public void changeToMyReviewListView() {
-		Stage primaryStage = (Stage)vbox_myReviewList.getScene().getWindow();
+		Stage primaryStage = (Stage) vbox_myReviewList.getScene().getWindow();
 		Parent root;
 		try {
 			root = FXMLLoader.load(getClass().getResource("../view/MyReviewListView.fxml"));
 			Scene scene = new Scene(root);
-			
+
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (IOException e) {

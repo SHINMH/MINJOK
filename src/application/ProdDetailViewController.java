@@ -10,14 +10,23 @@ import org.json.simple.parser.ParseException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import model.ReviewModel;
 
 public class ProdDetailViewController implements Initializable{
@@ -78,6 +87,8 @@ public class ProdDetailViewController implements Initializable{
 			e.printStackTrace();
 		}
 		
+		data.clear();
+		
 		for (int i = 0; i < jsonArray.size(); i++) {
 			JSONObject tempObject = (JSONObject) jsonArray.get(i);
 			data.add(new ReviewModel(tempObject.get("reviewUser").toString(),tempObject.get("reviewTitle").toString(),tempObject.get("reviewContent").toString(),
@@ -86,6 +97,34 @@ public class ProdDetailViewController implements Initializable{
 		}
 		
 		tableView_review.setItems(data);
+	}
+	
+	public void writeReview(ActionEvent event) throws Exception {
+		AppManager.getInstance().setScene(btn_writeReview.getScene());
+		AppManager.getInstance().setStage((Stage) btn_writeReview.getScene().getWindow());
+		
+		Stage postDialog = new Stage(StageStyle.DECORATED);
+		
+		postDialog.initModality(Modality.WINDOW_MODAL);
+		postDialog.setTitle("리뷰 작성");
+		postDialog.initOwner(btn_writeReview.getScene().getWindow());
+
+		Parent parent = FXMLLoader.load(getClass().getResource("../view/ReviewPostView.fxml"));
+
+		Scene scene = new Scene(parent);
+
+		postDialog.setScene(scene);
+
+		postDialog.setResizable(false);
+
+		postDialog.show();
+		
+		postDialog.setOnHiding(new EventHandler<WindowEvent>() {
+	         @Override
+	         public void handle(WindowEvent event) {
+	            getReviewList();
+	         }
+	     });
 		
 	}
 }
