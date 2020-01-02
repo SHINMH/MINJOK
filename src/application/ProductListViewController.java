@@ -30,11 +30,12 @@ public class ProductListViewController implements Initializable {
 	private int prodindex;
 	private int maxnumber;
 	private ArrayList<ProductModel> prodList;
+	private ArrayList<ProductModel> showProdList;
 	
 	@FXML
 	private GridPane item_listview;
 	@FXML
-	private TextField tf_id;
+	private TextField tf_search;
 	@FXML
 	private Button btn_search;
 	@FXML
@@ -55,6 +56,7 @@ public class ProductListViewController implements Initializable {
 		prodindex = 0;
 		
 		prodList= new ArrayList<ProductModel>();
+		showProdList = new ArrayList<ProductModel>();
 	}
 	
 	public void initView() {
@@ -80,6 +82,19 @@ public class ProductListViewController implements Initializable {
 		
 	}
 
+	public void searchEntry(ActionEvent event) throws Exception {
+		showProdList.clear();
+		for(int i=0;i<prodList.size();i++) {
+			ProductModel model = prodList.get(i);
+			
+			if(model.getProdName().contains(tf_search.getText())) {
+				showProdList.add(model);
+				System.out.println(model.getProdName());
+			}
+		}
+		//showList();
+	}
+	
 	public void getList() {
 		NetworkController networkController = new NetworkController();
 		
@@ -107,14 +122,14 @@ public class ProductListViewController implements Initializable {
 			newModel.setProdCompany(jsonObject.get("prodCompany").toString());
 			newModel.setProdImage(jsonObject.get("prodImage").toString());
 			prodList.add(newModel);
+			showProdList.add(newModel);
 		}
 	}
 	
 	public void showList() {
 		for(int i=0;i<2;i++) {
 			for(int j=0;j<3;j++) {
-				//if(prodindex*6+i+j >= maxnumber)break;
-				ProductModel model = prodList.get(prodindex);
+				ProductModel model = showProdList.get(prodindex);
 				prodindex++;
 				
 				VBox newItem = new VBox();

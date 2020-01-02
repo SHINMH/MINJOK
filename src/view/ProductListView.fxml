@@ -59,7 +59,7 @@
       </VBox>
       <AnchorPane layoutX="200.0" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button fx:id="btn_search" layoutX="620.0" layoutY="40.0" mnemonicParsing="false" prefWidth="100.0" text="상품 검색" />
+            <Button fx:id="btn_search" layoutX="620.0" layoutY="40.0" mnemonicParsing="false" onAction="#searchEntry" prefWidth="100.0" text="상품 검색" />
             <TextField fx:id="tf_search" layoutX="100.0" layoutY="40.0" prefWidth="500.0" />
             <Label fx:id="label_index" layoutX="385.0" layoutY="527.0" text="1/3" />
             <Button fx:id="btn_next" layoutX="444.0" layoutY="523.0" mnemonicParsing="false" onAction="#nextlist" text="next" />
