@@ -13,9 +13,12 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -24,6 +27,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.ProductModel;
 
 public class ProductListViewController implements Initializable {
@@ -86,8 +92,22 @@ public class ProductListViewController implements Initializable {
 		showList();
 	}
 	
-	public void clickEntry(ActionEvent event) throws Exception {
-		
+	public void clickEntry(Event arg0) throws Exception {
+			Stage joinDialog = new Stage(StageStyle.DECORATED);
+
+	      joinDialog.initModality(Modality.WINDOW_MODAL);
+	      joinDialog.setTitle("상품 상세보기");
+	      joinDialog.initOwner(btn_prev.getScene().getWindow());
+
+	      Parent parent = FXMLLoader.load(getClass().getResource("../view/ProdDetailView.fxml"));
+	      
+	      Scene scene = new Scene(parent);
+
+	      joinDialog.setScene(scene);
+
+	      joinDialog.setResizable(false);
+
+	      joinDialog.show();
 	}
 
 	public void searchEntry(ActionEvent event) throws Exception {
@@ -172,6 +192,13 @@ public class ProductListViewController implements Initializable {
 					public void handle(Event arg0) {
 						// TODO Auto-generated method stub
 						System.out.print(""+label_name.getText());
+						try {
+							clickEntry(arg0);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
 					}
 				});
 				int x=i%3;
