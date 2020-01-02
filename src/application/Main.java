@@ -1,7 +1,5 @@
 package application;
 
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,13 +19,7 @@ public class Main extends Application {
 
 		initLoginLayout();
 	}
-	public static void pause() {
-		try {
-		      System.in.read();
-		    } catch (IOException e) { }
-		  
-	}
-	
+
 	public void initLoginLayout() {
 		// fxml 파일에서 상위 레이아웃을 가져온다.
 		try {
@@ -41,11 +33,6 @@ public class Main extends Application {
 		}
 	}
 	
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
-
-
 	public static void main(String[] args) {
 		launch(args);
 	}
