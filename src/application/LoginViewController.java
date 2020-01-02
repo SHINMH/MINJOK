@@ -50,7 +50,7 @@ public class LoginViewController {
 			AppManager.getInstance().setUser(id, pw);
 			
 			Stage primaryStage = (Stage)btn_login.getScene().getWindow();
-			Parent root = FXMLLoader.load(getClass().getResource("../view/ProductListView.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/view/ProductListView.fxml"));
 			Scene scene = new Scene(root);
 			
 			primaryStage.setScene(scene);
@@ -62,7 +62,7 @@ public class LoginViewController {
 		System.out.print("로그인 버튼 눌림");
 
 		Stage primaryStage = (Stage)btn_register.getScene().getWindow();
-		Parent root = FXMLLoader.load(getClass().getResource("../view/JoinView.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/JoinView.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		

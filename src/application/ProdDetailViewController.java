@@ -113,7 +113,7 @@ public class ProdDetailViewController implements Initializable{
 		postDialog.getIcons().add(image);
 		postDialog.initOwner(btn_writeReview.getScene().getWindow());
 
-		Parent parent = FXMLLoader.load(getClass().getResource("../view/ReviewPostView.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/ReviewPostView.fxml"));
 
 		Scene scene = new Scene(parent);
 

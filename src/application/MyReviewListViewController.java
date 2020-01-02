@@ -67,6 +67,10 @@ public class MyReviewListViewController implements Initializable {
 	}
 	public void showReviewEditView() {
 		Image image = new Image("/image/AppIcon.png");
+		if(tableView_myReviewList.getSelectionModel().getSelectedItem()==null) {
+			System.out.println("빈 공간");
+			return;
+		}
 		AppManager.getInstance().setCheckPoint(1);
         System.out.println("user : "+tableView_myReviewList.getSelectionModel().getSelectedItem().getReviewUser());
         AppManager.getInstance().setReview(tableView_myReviewList.getSelectionModel().getSelectedItem());
@@ -80,7 +84,7 @@ public class MyReviewListViewController implements Initializable {
         
 		Parent parent=null;
 		try {
-			parent = FXMLLoader.load(getClass().getResource("../view/ReviewPostView.fxml"));
+			parent = FXMLLoader.load(getClass().getResource("/view/ReviewPostView.fxml"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -137,7 +141,7 @@ public class MyReviewListViewController implements Initializable {
 		Stage primaryStage = (Stage) label_prodList.getScene().getWindow();
 		Parent root;
 		try {
-			root = FXMLLoader.load(getClass().getResource("../view/ProductListView.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/view/ProductListView.fxml"));
 			Scene scene = new Scene(root);
 
 			primaryStage.setScene(scene);

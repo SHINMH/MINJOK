@@ -16,7 +16,7 @@
       <Pane layoutX="690.0" layoutY="135.0" prefHeight="280.0" prefWidth="200.0" style="-fx-background-color: #f9f9f9; -fx-background-radius: 20;" />
 		<ImageView fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" smooth="false">
 			<image>
-				<Image url="@../image/back.PNG" />
+				<Image url="@/image/back.PNG" />
 			</image>
 		</ImageView>
 

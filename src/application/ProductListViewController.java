@@ -106,7 +106,7 @@ public class ProductListViewController implements Initializable {
 		detailDialog.setTitle("상품 상세보기");
 		detailDialog.initOwner(btn_prev.getScene().getWindow());
 
-		Parent parent = FXMLLoader.load(getClass().getResource("../view/ProdDetailView.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/ProdDetailView.fxml"));
 
 		Scene scene = new Scene(parent);
 
@@ -219,9 +219,10 @@ public class ProductListViewController implements Initializable {
 
 	public void changeToMyReviewListView() {
 		Stage primaryStage = (Stage) vbox_myReviewList.getScene().getWindow();
-		Parent root;
+		Parent root=null;;
+		String URL="/view/MyReviewListVIew.fxml";
 		try {
-			root = FXMLLoader.load(getClass().getResource("../view/MyReviewListView.fxml"));
+			root = FXMLLoader.load(getClass().getResource(URL));
 			Scene scene = new Scene(root);
 
 			primaryStage.setScene(scene);
