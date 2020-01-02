@@ -58,7 +58,7 @@ public class ProductListViewController implements Initializable {
 	private VBox vbox_reviewPost;
 	@FXML
 	private VBox vbox_myReivew;
-
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -86,6 +86,7 @@ public class ProductListViewController implements Initializable {
 			return;
 		item_listview.getChildren().clear();
 		prodindex++;
+		
 		showList();
 	}
 
@@ -96,6 +97,7 @@ public class ProductListViewController implements Initializable {
 
 		item_listview.getChildren().clear();
 		prodindex--;
+		
 		showList();
 	}
 	
@@ -169,6 +171,8 @@ public class ProductListViewController implements Initializable {
 		for (int i = 0; i < 6; i++) {
 			if ((prodindex * 6) + i < 0 || (prodindex * 6) + i >= maxnumber)
 				break;
+			label_index.setText((prodindex+1)+" / "+ (int)Math.ceil((double) maxnumber / 6.0));
+			
 			ProductModel model = showProdList.get((prodindex * 6) + i);
 
 			VBox newItem = new VBox();

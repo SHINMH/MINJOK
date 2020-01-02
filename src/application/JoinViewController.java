@@ -62,7 +62,7 @@ public class JoinViewController {
 					Stage primaryStage = (Stage) btn_register.getScene().getWindow();
 					Parent root = null;
 					try {
-						root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+						root = FXMLLoader.load(getClass().getResource("../view/LoginView.fxml"));
 						Scene scene = new Scene(root);
 						primaryStage.setScene(scene);
 						primaryStage.show();
@@ -84,7 +84,7 @@ public class JoinViewController {
 
 	public void cancel(ActionEvent event) throws Exception {
 		Stage primaryStage = (Stage) btn_cancel.getScene().getWindow();
-		Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../view/LoginView.fxml"));
 		Scene scene = new Scene(root);
 
 		primaryStage.setScene(scene);

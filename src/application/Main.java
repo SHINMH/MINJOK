@@ -23,7 +23,7 @@ public class Main extends Application {
 	public void initLoginLayout() {
 		// fxml 파일에서 상위 레이아웃을 가져온다.
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../view/LoginView.fxml"));
 			Scene scene = new Scene(root, 1000, 600);
 			
 			
