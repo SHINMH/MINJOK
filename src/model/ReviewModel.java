@@ -45,6 +45,9 @@ public class ReviewModel {
 		this.content=new SimpleStringProperty(content);
 		this.reviewNumber=reviewNumber;
 		this.prodNumber=prodNumber;
+		this.reviewUser=name;
+		this.reviewTitle=title;
+		this.reviewContent=content;
 
 	}
 	
