@@ -159,6 +159,7 @@ public class ProductListViewController implements Initializable {
 			prodList.add(newModel);
 			showProdList.add(newModel);
 		}
+		AppManager.getInstance().setProductList(prodList);
 	}
 
 	public void showList() {

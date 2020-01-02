@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="600.0" style="-fx-background-color: FDE0DD;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReviewPostViewController">
 	<children>
-		<Label layoutX="25.0" layoutY="25.0" style="-fx-background-color: FF948D; -fx-background-radius: 20;" text="&lt; 리뷰 작성 &gt;">
+		<Label fx:id="label_main" layoutX="25.0" layoutY="25.0" style="-fx-background-color: FF948D; -fx-background-radius: 20;" text="&lt; 리뷰 작성 &gt;">
 			<font>
 				<Font size="24.0" />
 			</font>

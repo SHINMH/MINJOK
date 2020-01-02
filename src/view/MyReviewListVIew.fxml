@@ -10,14 +10,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyReviewListViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+	prefWidth="1000.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="application.MyReviewListViewController"
+	style="-fx-background-color: FDE0DD;">
 	<children>
-		<VBox layoutY="123.0" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: FF8279;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+		<VBox layoutY="123.0" prefHeight="600.0" prefWidth="200.0"
+			style="-fx-background-color: FF8279;" AnchorPane.bottomAnchor="0.0"
+			AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<children>
 
-				<VBox prefHeight="93.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+				<VBox prefHeight="93.0" prefWidth="200.0"
+					style="-fx-background-color: black; -fx-border-color: white;">
 					<children>
-						<Label alignment="CENTER" prefHeight="99.0" prefWidth="200.0" style="-fx-background-color: FF8279;" text="리뷰의 민족" textFill="WHITE">
+						<Label alignment="CENTER" prefHeight="99.0"
+							prefWidth="200.0" style="-fx-background-color: FF8279;"
+							text="리뷰의 민족" textFill="WHITE">
 							<font>
 								<Font name="HYwulB" size="20.0" />
 							</font>
@@ -25,18 +35,25 @@
 					</children>
 				</VBox>
 
-				<VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+				<VBox prefHeight="50.0" prefWidth="200.0"
+					style="-fx-background-color: black; -fx-border-color: white;">
 					<children>
-						<Label fx:id="label_prodList" alignment="CENTER" onMouseClicked="#changeToMyProdListView" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: FF948D;" text="상품 리스트" textFill="WHITE">
+						<Label fx:id="label_prodList" alignment="CENTER"
+							onMouseClicked="#changeToMyProdListView" prefHeight="47.0"
+							prefWidth="200.0" style="-fx-background-color: FF948D;"
+							text="상품 리스트" textFill="WHITE">
 							<font>
 								<Font name="HYwulM" size="12.0" />
 							</font>
 						</Label>
 					</children>
 				</VBox>
-				<VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
+				<VBox prefHeight="50.0" prefWidth="200.0"
+					style="-fx-background-color: black; -fx-border-color: white;">
 					<children>
-						<Label alignment="CENTER" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: FF948D;" text="내 리뷰 리스트" textFill="WHITE">
+						<Label alignment="CENTER" prefHeight="47.0"
+							prefWidth="200.0" style="-fx-background-color: FF948D;"
+							text="내 리뷰 리스트" textFill="WHITE">
 							<font>
 								<Font name="HYwulM" size="12.0" />
 							</font>
@@ -45,19 +62,23 @@
 				</VBox>
 			</children>
 		</VBox>
-		<AnchorPane layoutX="200.0" prefHeight="600.0" prefWidth="800.0">
-         <children>
-            <TableView fx:id="tableView_myReviewList" layoutX="84.0" layoutY="156.0" prefHeight="350.0" prefWidth="600.0">
-              <columns>
-            		<TableColumn fx:id="title" prefWidth="100" text="제목" />
-	           		<TableColumn fx:id="content" prefWidth="500" text="내용" />
-              </columns>
-            </TableView>
-            <Label fx:id="label_userInfo" layoutX="84.0" layoutY="54.0" prefHeight="63.0" prefWidth="435.0" text="user님이 작성한 리뷰입니다.">
-               <font>
-                  <Font size="30.0" />
-               </font></Label>
-         </children>
+		<AnchorPane layoutX="200.0" prefHeight="600.0"
+			prefWidth="800.0">
+			<children>
+				<TableView fx:id="tableView_myReviewList" layoutX="84.0"
+					layoutY="156.0" prefHeight="350.0" prefWidth="600.0">
+					<columns>
+						<TableColumn fx:id="title" prefWidth="100" text="제목" />
+						<TableColumn fx:id="content" prefWidth="500" text="내용" />
+					</columns>
+				</TableView>
+				<Label fx:id="label_userInfo" layoutX="84.0" layoutY="54.0"
+					prefHeight="63.0" prefWidth="435.0" text="user님이 작성한 리뷰입니다.">
+					<font>
+						<Font size="30.0" />
+					</font>
+				</Label>
+			</children>
 		</AnchorPane>
 	</children>
 </AnchorPane>

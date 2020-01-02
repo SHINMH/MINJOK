@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.ProductModel;
@@ -14,6 +16,14 @@ public class AppManager {
 	private static AppManager instance = new AppManager();
 	private Scene scene;
 	private Stage stage;
+	private ArrayList<ProductModel> productList;
+	
+	public void setProductList(ArrayList<ProductModel> productList) {
+		this.productList = productList;
+	}
+	public ArrayList<ProductModel> getProductList(){
+		return productList;
+	}
 	
 	public int getCheckPoint() {
 		return checkPoint;
