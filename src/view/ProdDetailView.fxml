@@ -13,33 +13,42 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="555.0" style="-fx-background-color: FDE0DD; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProdDetailViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: FDE0DD; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProdDetailViewController">
    <children>
-      <Label layoutX="71.0" layoutY="28.0" style="-fx-background-color: FF948D; -fx-background-radius: 20;" text="&lt; 상품 정보 &gt;">
+      <Label layoutX="25.0" layoutY="25.0" style="-fx-background-color: FF948D; -fx-background-radius: 20;" text="&lt; 상품 정보 &gt;">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Pane layoutX="31.0" layoutY="64.0" prefHeight="510.0" prefWidth="492.0">
+      <Pane layoutX="25.0" layoutY="75.0" prefHeight="500.0" prefWidth="750.0">
          <children>
-            <Label layoutX="203.0" layoutY="37.0" text="상품 이름">
+            <ImageView fx:id="imageView_prod" fitHeight="150.0" fitWidth="150.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="label_name" layoutX="200.0" layoutY="20.0" text="상품 이름">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="203.0" layoutY="76.0" text="가격(원)">
+            <Label fx:id="label_price" layoutX="200.0" layoutY="60.0" text="가격(원)">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <ListView layoutX="46.0" layoutY="173.0" prefHeight="285.0" prefWidth="400.0" style="-fx-background-color: FFFFFF;" />
-            <ImageView fitHeight="116.0" fitWidth="139.0" layoutX="46.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="360.0" layoutY="472.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" text="리뷰 작성" />
-            <Label layoutX="203.0" layoutY="108.0" text="판매처">
+            <Label fx:id="label_company" layoutX="200.0" layoutY="100.0" text="판매처">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
+            <Button fx:id="btn_writeReview" layoutX="635.0" layoutY="140.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" text="리뷰 작성" />
+            
+            <TableView fx:id="tableView_review" layoutX="20.0" layoutY="190.0" prefHeight="290.0" prefWidth="700.0" style="-fx-background-color: FFFFFF;" >
+            	<columns>
+            		<TableColumn prefWidth = "100" text="제목"/>
+            		<TableColumn prefWidth = "100" text="작성자"/>
+            		<TableColumn prefWidth = "500" text="내용"/>
+            	</columns>
+            </TableView>
+      			
+      
          </children>
       </Pane>
    </children>

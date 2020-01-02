@@ -1,11 +1,18 @@
 package model;
 
 public class ReviewModel {
+	
 	private int reviewNumber;
 	private int prodNumber;
 	private String reviewUser;
 	private String reviewTitle;
 	private String reviewContent;
+	
+	public ReviewModel(String user, String title, String content) {
+		this.reviewUser = user;
+		this.reviewTitle = title;
+		this.reviewContent = content;
+	}
 	
 	public int getReviewNumber() {
 		return reviewNumber;
@@ -37,4 +44,5 @@ public class ReviewModel {
 	public void setReviewContent(String reviewContent) {
 		this.reviewContent = reviewContent;
 	}
+	
 }

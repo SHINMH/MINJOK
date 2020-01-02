@@ -23,8 +23,8 @@ public class NetworkController {
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("Content-Type", "application/json");
 			conn.setRequestProperty("Accept-Charset", "UTF-8");
-			conn.setConnectTimeout(3000);
-			conn.setReadTimeout(3000);
+			conn.setConnectTimeout(10000);
+			conn.setReadTimeout(10000);
 			
 			OutputStream os = conn.getOutputStream();
 			os.write(jsonValue.toJSONString().getBytes("UTF-8"));
