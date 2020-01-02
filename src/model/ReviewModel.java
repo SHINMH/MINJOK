@@ -1,5 +1,8 @@
 package model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class ReviewModel {
 	
 	private int reviewNumber;
@@ -8,10 +11,41 @@ public class ReviewModel {
 	private String reviewTitle;
 	private String reviewContent;
 	
-	public ReviewModel(String user, String title, String content) {
-		this.reviewUser = user;
-		this.reviewTitle = title;
-		this.reviewContent = content;
+	private StringProperty name;
+	private StringProperty title;
+	private StringProperty content;
+	
+	public StringProperty getName() {
+		return name;
+	}
+
+	public void setName(StringProperty name) {
+		this.name = name;
+	}
+
+	public StringProperty getTitle() {
+		return title;
+	}
+
+	public void setTitle(StringProperty title) {
+		this.title = title;
+	}
+
+	public StringProperty getContent() {
+		return content;
+	}
+
+	public void setContent(StringProperty content) {
+		this.content = content;
+	}
+	
+	public ReviewModel(String name, String title, String content,int reviewNumber, int prodNumber) {
+		this.name=new SimpleStringProperty(name);
+		this.title=new SimpleStringProperty(title);
+		this.content=new SimpleStringProperty(content);
+		this.reviewNumber=reviewNumber;
+		this.prodNumber=prodNumber;
+
 	}
 	
 	public int getReviewNumber() {

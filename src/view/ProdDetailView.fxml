@@ -40,11 +40,11 @@
             </Label>
             <Button fx:id="btn_writeReview" layoutX="635.0" layoutY="140.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" text="리뷰 작성" />
             
-            <TableView fx:id="tableView_review" layoutX="20.0" layoutY="190.0" prefHeight="290.0" prefWidth="700.0" style="-fx-background-color: FFFFFF;" >
+            <TableView fx:id="tableView_review" layoutX="20.0" layoutY="190.0" prefHeight="290.0" prefWidth="700.0" style="-fx-background-color: FFFFFF;">
             	<columns>
-            		<TableColumn prefWidth = "100" text="제목"/>
-            		<TableColumn prefWidth = "100" text="작성자"/>
-            		<TableColumn prefWidth = "500" text="내용"/>
+            		<TableColumn fx:id="title" prefWidth="100" text="제목" />
+            		<TableColumn fx:id="user" prefWidth="100" text="작성자" />
+            		<TableColumn fx:id="content" prefWidth="500" text="내용" />
             	</columns>
             </TableView>
       			

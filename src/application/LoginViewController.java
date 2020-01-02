@@ -50,7 +50,6 @@ public class LoginViewController {
 			Stage primaryStage = (Stage)btn_login.getScene().getWindow();
 			Parent root = FXMLLoader.load(getClass().getResource("../view/ProductListView.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();

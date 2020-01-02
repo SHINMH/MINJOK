@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -32,8 +33,14 @@ public class ProdDetailViewController implements Initializable{
 	private Button btn_writeReview;
 	@FXML
 	private TableView<ReviewModel> tableView_review;
+	@FXML
+	private TableColumn<ReviewModel,String> user;
+	@FXML
+	private TableColumn<ReviewModel,String> title;
+	@FXML
+	private TableColumn<ReviewModel,String> content;
 	
-	private ObservableList<ReviewModel> data;
+	private ObservableList<ReviewModel> data=null;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -46,8 +53,11 @@ public class ProdDetailViewController implements Initializable{
 		label_price.setText("가격 : "+AppManager.getInstance().getProduct().getProdPrice());
 		label_company.setText("판매처 : "+AppManager.getInstance().getProduct().getProdCompany());
 		
-		data = FXCollections.observableArrayList();
-		
+		data=FXCollections.observableArrayList();
+		user.setCellValueFactory(cellData->cellData.getValue().getName());
+		title.setCellValueFactory(cellData->cellData.getValue().getTitle());
+		content.setCellValueFactory(cellData->cellData.getValue().getContent());
+
 		getReviewList();
 	}
 
@@ -70,12 +80,12 @@ public class ProdDetailViewController implements Initializable{
 		
 		for (int i = 0; i < jsonArray.size(); i++) {
 			JSONObject tempObject = (JSONObject) jsonArray.get(i);
+			data.add(new ReviewModel(tempObject.get("reviewUser").toString(),tempObject.get("reviewTitle").toString(),tempObject.get("reviewContent").toString(),
+					Integer.parseInt(tempObject.get("reviewNumber").toString()), Integer.parseInt(tempObject.get("prodNumber").toString())));
 			
-			
-			
-			
-			tableView_review.getItems().add(new ReviewModel(""+i,"",""));
 		}
+		
+		tableView_review.setItems(data);
 		
 	}
 }
