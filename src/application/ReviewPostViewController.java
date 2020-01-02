@@ -26,11 +26,17 @@ public class ReviewPostViewController implements Initializable{
 	private Button btn_submit;
 	@FXML
 	private Button btn_cancel;
+	@FXML
+	private Button btn_delete;
+	@FXML
+	private Button btn_revise;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		label_name.setText(""+AppManager.getInstance().getProduct().getProdName());
+		btn_delete.setVisible(false);
+		btn_revise.setVisible(false);
 	}
 	
 	public void postReview() throws Exception{
@@ -62,5 +68,12 @@ public class ReviewPostViewController implements Initializable{
 		Stage stage;
 		stage = (Stage)btn_cancel.getScene().getWindow();
 		stage.close();
+	}
+	
+	public void reviseReview() {
+		
+	}
+	public void deleteReview() {
+		
 	}
 }

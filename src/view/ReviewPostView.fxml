@@ -45,8 +45,11 @@
 				</Label>
 				<TextField fx:id="tf_title" layoutX="110.0" layoutY="50.0" prefWidth="200.0" />
 				<TextField fx:id="tf_content" layoutX="110.0" layoutY="90.0" prefHeight="23.0" prefWidth="440.0" />
-				<Button fx:id="btn_cancel" layoutX="372.0" layoutY="137.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #045FB4;" text="취소" textFill="WHITE" />
-				<Button fx:id="btn_submit" layoutX="464.0" layoutY="137.0" mnemonicParsing="false" onAction="#postReview" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #045FB4;" text="제출" textFill="WHITE" />
+				<Button fx:id="btn_cancel" layoutX="464.0" layoutY="137.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #045FB4;" text="취소" textFill="WHITE" />
+				<Button fx:id="btn_submit" layoutX="372.0" layoutY="137.0" mnemonicParsing="false" onAction="#postReview" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #045FB4;" text="제출" textFill="WHITE" />
+				
+				<Button fx:id="btn_revise" layoutX="280.0" layoutY="137.0" mnemonicParsing="false" onAction="#reviseReview" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #045FB4;" text="수정" textFill="WHITE" />
+				<Button fx:id="btn_delete" layoutX="372.0" layoutY="137.0" mnemonicParsing="false" onAction="#deleteReview" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #045FB4;" text="삭제" textFill="WHITE" />
 			</children>
 		</Pane>
 	</children>
