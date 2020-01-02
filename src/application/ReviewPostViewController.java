@@ -30,7 +30,12 @@ public class ReviewPostViewController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		label_name.setText(""+AppManager.getInstance().getProduct().getProdName());
+		if(AppManager.getInstance().getCheckPoint()==2) {
+			label_name.setText(""+AppManager.getInstance().getProduct().getProdName());
+		}
+		else if(AppManager.getInstance().getCheckPoint()==1) {
+			
+		}
 	}
 	
 	public void postReview() throws Exception{

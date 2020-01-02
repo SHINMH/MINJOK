@@ -12,6 +12,7 @@ import org.json.simple.parser.ParseException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,7 +21,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import model.ProductModel;
 import model.ReviewModel;
 
@@ -49,11 +54,54 @@ public class MyReviewListViewController implements Initializable {
 		data=FXCollections.observableArrayList();
 		title.setCellValueFactory(cellData->cellData.getValue().getTitle());
 		content.setCellValueFactory(cellData->cellData.getValue().getContent());
+		tableView_myReviewList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		    @Override 
+		    public void handle(MouseEvent event) {
+		        if (event.getClickCount() == 2) {
+		            showReviewEditView();
+		        }
+		    }
+		});
+		getMyReviewList();
+	}
+	public void showReviewEditView() {
+		AppManager.getInstance().setCheckPoint(1);
+        System.out.println("user : "+tableView_myReviewList.getSelectionModel().getSelectedItem().getReviewUser());
+        AppManager.getInstance().setReview(tableView_myReviewList.getSelectionModel().getSelectedItem());
+        System.out.println("title : " +AppManager.getInstance().getReview().getReviewTitle());
+		
+        Stage editDialog = new Stage(StageStyle.DECORATED);
+		
+        editDialog.initModality(Modality.WINDOW_MODAL);
+        editDialog.setTitle("리뷰 수정 / 삭제");
+        editDialog.initOwner(tableView_myReviewList.getScene().getWindow());
+        
+		Parent parent=null;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("../view/ReviewPostView.fxml"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		getList();
+		Scene scene = new Scene(parent);
+
+		editDialog.setScene(scene);
+
+		editDialog.setResizable(false);
+
+		editDialog.show();
+		
+		editDialog.setOnHiding(new EventHandler<WindowEvent>() {
+	         @Override
+	         public void handle(WindowEvent event) {
+	            getMyReviewList();
+	         }
+	     });
 	}
 	
-	public void getList() {
+	public void getMyReviewList() {
+		tableView_myReviewList.getItems().clear();
 		NetworkController networkController = new NetworkController();
 
 		JSONObject jsonObject1 = new JSONObject();
@@ -79,6 +127,7 @@ public class MyReviewListViewController implements Initializable {
 			
 		}
 		tableView_myReviewList.setItems(data);
+		
 
 	}
 	
