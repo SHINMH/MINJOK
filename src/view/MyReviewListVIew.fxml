@@ -27,7 +27,7 @@
 
 				<VBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;">
 					<children>
-						<Label fx:id="label_prodList" alignment="CENTER" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: FF948D;" text="상품 리스트" textFill="WHITE">
+						<Label fx:id="label_prodList" alignment="CENTER" onMouseClicked="#changeToMyProdListView" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: FF948D;" text="상품 리스트" textFill="WHITE">
 							<font>
 								<Font name="HYwulM" size="12.0" />
 							</font>
