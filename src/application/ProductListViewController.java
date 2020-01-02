@@ -42,6 +42,9 @@ public class ProductListViewController implements Initializable {
 	private Button btn_next;
 	@FXML
 	private Button btn_prev;
+	
+	@FXML
+	private Label label_index;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -60,7 +63,7 @@ public class ProductListViewController implements Initializable {
 	}
 	
 	public void initView() {
-		item_listview.setHgap(10);
+		item_listview.setHgap(20);
 		item_listview.setVgap(10);	
 	}
 
@@ -91,6 +94,7 @@ public class ProductListViewController implements Initializable {
 		item_listview.getChildren().clear();
 		showProdList.clear();
 		maxnumber = 0;
+		prodindex = 0;
 		for(int i=0;i<prodList.size();i++) {
 			ProductModel model = prodList.get(i);
 			
@@ -140,7 +144,7 @@ public class ProductListViewController implements Initializable {
 				ProductModel model = showProdList.get((prodindex*6)+i);
 				
 				VBox newItem = new VBox();
-				String style = "-fx-background-color: rgba(255, 255, 255, 0.5);";
+				String style = "-fx-background-color: rgba(255, 255, 255, 1); -fx-background-radius: 30;";
 				newItem.setStyle(style);
 				newItem.setPadding(new Insets(10));
 				newItem.setAlignment(Pos.CENTER);
