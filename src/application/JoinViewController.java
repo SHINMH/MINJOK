@@ -52,27 +52,34 @@ public class JoinViewController {
 			JSONObject result1 = (JSONObject) parser.parse(result);
 			String code = String.valueOf(result1.get("code"));
 			
-			alert.setTitle("Information Dialog");
-			alert.setHeaderText(null);
-			alert.setContentText("회원가입 성공!");
-			alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
-				@Override
-				public void handle(DialogEvent arg0) {
-					// TODO Auto-generated method stub
-					Stage primaryStage = (Stage) btn_register.getScene().getWindow();
-					Parent root = null;
-					try {
-						root = FXMLLoader.load(getClass().getResource("/view/LoginView.fxml"));
-						Scene scene = new Scene(root);
-						primaryStage.setScene(scene);
-						primaryStage.show();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+			if(code.equals("200")) {
+				alert.setTitle("Information Dialog");
+				alert.setHeaderText(null);
+				alert.setContentText("회원가입 성공!");
+				alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
+					@Override
+					public void handle(DialogEvent arg0) {
+						// TODO Auto-generated method stub
+						Stage primaryStage = (Stage) btn_register.getScene().getWindow();
+						Parent root = null;
+						try {
+							root = FXMLLoader.load(getClass().getResource("/view/LoginView.fxml"));
+							Scene scene = new Scene(root);
+							primaryStage.setScene(scene);
+							primaryStage.show();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
-				}
-			});
-			alert.showAndWait();
+				});
+				alert.showAndWait();
+			}else {
+				alert.setTitle("Information Dialog");
+				alert.setHeaderText(null);
+				alert.setContentText("이미 아이디가 존재합니다.");
+				alert.showAndWait();
+			}
 		}
 		else {
 			alert.setTitle("Information Dialog");
