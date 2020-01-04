@@ -1,12 +1,15 @@
 package model;
 
 public class ProductModel {
-	private int prodNumber;
-	private String prodName;
-	private String prodPrice;
-	private String prodImage;
-	private String prodCompany;
+	//제품 정보를 담을 DTO 클래스
 	
+	private int prodNumber;//제품 고유 번호
+	private String prodName;//제품 이름
+	private String prodPrice;//제품 가격
+	private String prodImage;//제품 제품 이미지 string 주소
+	private String prodCompany;//판매처
+	
+	//get, set
 	public int getProdNumber() {
 		return prodNumber;
 	}

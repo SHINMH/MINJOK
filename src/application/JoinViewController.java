@@ -20,7 +20,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class JoinViewController {
-
+	//회원가입을 진행하는 joinview에 앱핑되있는 컨트롤러
+	
 	//뷰의 component 
 	@FXML
 	private TextField tf_id;
@@ -33,26 +34,34 @@ public class JoinViewController {
 	@FXML
 	private Button btn_cancel;
 
+	//회원가입 번호 클릭시 서버와 통신하여 회원가입 결과를 반환하고 그 결과에 따라 화면에 보여줌
 	public void register(ActionEvent event) throws Exception {
 		String id = tf_id.getText();
 		String pw = tf_password.getText();
 		String rePw = tf_rePassword.getText();
 		Alert alert = new Alert(AlertType.INFORMATION);
 		
+		//1차 비밀번호와 2차 비밀번호가 동일한지 검사함
 		if (pw.equals(rePw)) {
 			NetworkController networkController = new NetworkController();
-
+			//서버와 통신하기 위해 jsonobject를 생성하고, id와 pw를 넣음.
 			JSONObject jsonObject = new JSONObject();
 			jsonObject.put("id", id);
 			jsonObject.put("pw", pw);
 			
+			//networkcontroller의 sendREST method를 이용하여 서버와 통신함, 이때 url 과 jsonobject를 넘겨줌
 			String result = networkController.sendREST("http://15011066.iptime.org:8080/user/register", jsonObject);
+			//반환값으로 string을 받음
 			
+			//서버와 통신후 받은 string 값을 jsonparser를 이용하여 jsonobject로 파싱함.
+			//jsonobject에서 code값을 뽑아냄
 			JSONParser parser = new JSONParser();
 			JSONObject result1 = (JSONObject) parser.parse(result);
 			String code = String.valueOf(result1.get("code"));
 			
+			//code값이 200일때 회원가입 성공, 200이 아닌 다른값이 오면 회원가입 실패
 			if(code.equals("200")) {
+				//회원가입에 대해 dialog로 알려주고, 화원을 로그인화면으로 전환함.
 				alert.setTitle("Information Dialog");
 				alert.setHeaderText(null);
 				alert.setContentText("회원가입 성공!");
@@ -74,13 +83,13 @@ public class JoinViewController {
 					}
 				});
 				alert.showAndWait();
-			}else {
+			}else {//회원가입 실패시 화면에 dialog를 보여주며, 회원가입이 실패했음을 알림.
 				alert.setTitle("Information Dialog");
 				alert.setHeaderText(null);
 				alert.setContentText("이미 아이디가 존재합니다.");
 				alert.showAndWait();
 			}
-		}
+		}//1차 2차 비밀번호가 다를시 화면에 다이얼로그를 보여줌
 		else {
 			alert.setTitle("Information Dialog");
 			alert.setHeaderText(null);
@@ -88,7 +97,8 @@ public class JoinViewController {
 			alert.showAndWait();
 		}
 	}
-
+	
+	//취소버튼 클릭시 화면을 로그인 화면으로 전환함.
 	public void cancel(ActionEvent event) throws Exception {
 		Stage primaryStage = (Stage) btn_cancel.getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("/view/LoginView.fxml"));
