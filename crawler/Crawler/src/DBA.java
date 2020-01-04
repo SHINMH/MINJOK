@@ -49,15 +49,15 @@ public class DBA {
 	}
 	
 	void insertProdInfo(ArrayList<Prod> pd) {
-		String sql="insert into prodlist(prodName,prodPrice,prodImage,prodCompany) values(?,?,?,?)";
+		String sql="UPDATE prodlist SET prodPrice=?,prodImage=?,prodCompany=? WHERE prodName=?";
 		
 		for(int i =0;i<pd.size();i++) {
 			try {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, pd.get(i).getProdName());
-				pstmt.setString(2, pd.get(i).getProdPrice());
-				pstmt.setString(3, pd.get(i).getProdImage());
-				pstmt.setString(4, pd.get(i).getProdCompany());
+				pstmt.setString(1, pd.get(i).getProdPrice());
+				pstmt.setString(2, pd.get(i).getProdImage());
+				pstmt.setString(3, pd.get(i).getProdCompany());
+				pstmt.setString(4, pd.get(i).getProdName());
 
 				pstmt.executeUpdate();
 				
