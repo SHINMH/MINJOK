@@ -21,13 +21,13 @@ import javafx.stage.Stage;
 
 public class JoinViewController {
 
+	//뷰의 component 
 	@FXML
 	private TextField tf_id;
 	@FXML
 	private PasswordField tf_password;
 	@FXML
 	private PasswordField tf_rePassword;
-
 	@FXML
 	private Button btn_register;
 	@FXML

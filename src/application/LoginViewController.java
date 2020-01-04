@@ -17,11 +17,11 @@ import javafx.stage.Stage;
 
 public class LoginViewController {
 
+	//view component mapping
 	@FXML
 	private TextField tf_id;
 	@FXML
 	private PasswordField tf_password;
-
 	@FXML
 	private Button btn_login;
 	@FXML

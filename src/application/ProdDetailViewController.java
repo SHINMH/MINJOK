@@ -3,10 +3,7 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +24,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
+import model.Modelling;
 import model.ReviewModel;
 
 public class ProdDetailViewController implements Initializable{
@@ -78,24 +76,10 @@ public class ProdDetailViewController implements Initializable{
 
 		String result = networkController.sendREST("http://15011066.iptime.org:8080/review/prod/", jsonObject);
 		
-		JSONParser parser = new JSONParser();
-		JSONArray jsonArray = null;
-		try {
-			jsonArray = (JSONArray) parser.parse(result);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
+		Modelling modelling = new Modelling();
 		data.clear();
-		
-		for (int i = 0; i < jsonArray.size(); i++) {
-			JSONObject tempObject = (JSONObject) jsonArray.get(i);
-			data.add(new ReviewModel(tempObject.get("reviewUser").toString(),tempObject.get("reviewTitle").toString(),tempObject.get("reviewContent").toString(),
-					Integer.parseInt(tempObject.get("reviewNumber").toString()), Integer.parseInt(tempObject.get("prodNumber").toString())));
-			
-		}
-		
+		data.addAll(modelling.reviewModelling(result));
 		tableView_review.setItems(data);
 	}
 	
@@ -103,8 +87,6 @@ public class ProdDetailViewController implements Initializable{
 		Image image = new Image("/image/AppIcon.png");
 		
 		AppManager.getInstance().setCheckPoint(2);
-		AppManager.getInstance().setScene(btn_writeReview.getScene());
-		AppManager.getInstance().setStage((Stage) btn_writeReview.getScene().getWindow());
 		
 		Stage postDialog = new Stage(StageStyle.DECORATED);
 		

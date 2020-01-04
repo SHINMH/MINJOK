@@ -5,10 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,7 +24,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
-import model.ProductModel;
+import model.Modelling;
 import model.ReviewModel;
 
 public class MyReviewListViewController implements Initializable {
@@ -114,24 +111,10 @@ public class MyReviewListViewController implements Initializable {
 		jsonObject1.put("id", AppManager.getInstance().getUser().getUserID());
 		
 		String result = networkController.sendREST("http://15011066.iptime.org:8080/review/my", jsonObject1);
-		JSONParser parser = new JSONParser();
-		JSONArray jsonArray = null;
-		try {
-			jsonArray = (JSONArray) parser.parse(result);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		for (int i = 0; i < jsonArray.size(); i++) {
-			JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-			System.out.println(jsonObject.get("reviewTitle"));
-
-			//	public ReviewModel(String name, String title, String content,int reviewNumber, int prodNumber) 
-			data.add(new ReviewModel(jsonObject.get("reviewUser").toString(),jsonObject.get("reviewTitle").toString(),jsonObject.get("reviewContent").toString(),
-					Integer.parseInt(jsonObject.get("reviewNumber").toString()), Integer.parseInt(jsonObject.get("prodNumber").toString())));
-			
-		}
+		Modelling modelling = new Modelling();
+		
+		data.clear();
+		data.addAll(modelling.reviewModelling(result));
 		tableView_myReviewList.setItems(data);
 		
 

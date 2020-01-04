@@ -22,7 +22,6 @@ public class ReviewPostViewController implements Initializable{
 	private TextField tf_title;
 	@FXML
 	private TextField tf_content;
-	
 	@FXML
 	private Button btn_submit;
 	@FXML
@@ -35,15 +34,14 @@ public class ReviewPostViewController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		if(AppManager.getInstance().getCheckPoint()==2) {//post
+		if(AppManager.getInstance().getCheckPoint()== AppManager.REVIEWWRITE) {
 			label_main.setText("< 리뷰 작성 >");
 			label_name.setText(""+AppManager.getInstance().getProduct().getProdName());
 			btn_delete.setVisible(false);
 			btn_revise.setVisible(false);
 		}
-		else if(AppManager.getInstance().getCheckPoint()==1) {//edit
+		else if(AppManager.getInstance().getCheckPoint()== AppManager.REVIEWEDIT) {
 			String productName = AppManager.getInstance().getProductList().get(AppManager.getInstance().getReview().getProdNumber()-1).getProdName();
-			
 			label_name.setText(productName);
 			label_main.setText("< 리뷰 편집 >");
 			btn_submit.setVisible(false);
