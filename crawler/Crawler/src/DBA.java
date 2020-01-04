@@ -5,19 +5,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+//데이터베이스에 접속하기 위한 클래스
 public class DBA {
 	
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver"; // jdbc 드라이버 주소
 	static final String DB_URL = "jdbc:mysql://15011066.iptime.org:7777/minjok?useSSL=false"; // DB 접속 주소
-	// localhost는 접속하려는 데이터베이스 주소를 입력하시면 됩니다. localhost를 사용하면 됩니다.
-	// 3306은 데이터베이스에 접속할때 사용하는 포터번호입니다. 설치할때 설정한 포트번호를 사용합니다.
-	// databasename에는 접속하려는 database의 name을 입력해줍니다.
 	static final String USERNAME = ""; // DB ID
 	static final String PASSWORD = ""; // DB Password
 	
-	Connection conn;
-	PreparedStatement pstmt;
-	ResultSet rs;
+	Connection conn; //db 커넥션을 위한 변수
+	PreparedStatement pstmt; //sql 작성을 위한 변수
+	ResultSet rs; //쿼리 결과를 담을 변수
 
 	DBA() {
 
@@ -48,9 +46,11 @@ public class DBA {
 		
 	}
 	
+	//크롤링한 데이터를 입력하는 메소드 상품정보가 담긴 어레이리스트를 매개변수로 받는다.
 	void insertProdInfo(ArrayList<Prod> pd) {
 		String sql="UPDATE prodlist SET prodPrice=?,prodImage=?,prodCompany=? WHERE prodName=?";
 		
+		//ArrayList의 크기만큼 반복하면서 쿼리문을 실행한다.
 		for(int i =0;i<pd.size();i++) {
 			try {
 				pstmt = conn.prepareStatement(sql);

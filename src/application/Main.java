@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	private Stage primaryStage; //메인 스테이지
-	private AnchorPane rootLayout;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -35,6 +34,7 @@ public class Main extends Application {
 		}
 	}
 	
+	//프로그램 진입점
 	public static void main(String[] args) {
 		launch(args);
 	}

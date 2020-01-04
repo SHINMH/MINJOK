@@ -1,6 +1,7 @@
-
+//상품 모델을 정의한 클래스
 public class Prod {
 	
+	//상품의 정보 : 이름, 가격, 이미지, 판매처
 	private String prodName;
 	private String prodPrice;
 	private String prodImage;
