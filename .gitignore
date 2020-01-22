@@ -2,3 +2,7 @@
 .project
 *.class
 bin/
+server/.ftpconfig
+server/config/.ftpconfig
+server/config/config.json
+server/config/dbconfig.js
